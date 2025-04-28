@@ -1,4 +1,4 @@
-# ⚠️ Disclaimer
+#  Disclaimer
 This tool is for educational and research purposes only.
 The author is not responsible for any misuse or illegal activity.
 
@@ -13,16 +13,16 @@ A simple and fast `.exe` / `.dll` to raw `.bin` shellcode converter with optiona
 
 ---
 
-## 📦 Features
+##  Features
 
-- ✅ Converts PE files (`.exe` or `.dll`) into shellcode (`.bin`)
-- 🔐 Optional AES encryption (CTR mode) using a passphrase
-- 🧹 Optional shellcode optimization (removes commas for cleaner output)
-- ⚡ Minimal and fast, written in pure Go
+-  Converts PE files (`.exe` or `.dll`) into shellcode (`.bin`)
+-  Optional AES encryption (CTR mode) using a passphrase
+-  Optional shellcode optimization (removes commas for cleaner output)
+-  Minimal and fast, written in pure Go
 
 ---
 
-🚀 Usage
+Usage
 ```
 shellconverter -i <input_file> -o <output_file> [-crypt <passphrase>] [-opt]
 ```
@@ -32,7 +32,7 @@ shellconverter -i <input_file> -o <output_file> [-crypt <passphrase>] [-opt]
   - `-crypt	(Optional) AES encryption passphrase`
   - `-opt	(Optional) Optimizes shellcode (removes commas)`
 
-💡 Example
+ Example
 ```
 shellconverter -i input.exe -o output.bin -crypt="mysecurepassword" -opt
 ```
