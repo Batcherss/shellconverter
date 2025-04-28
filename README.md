@@ -2,7 +2,7 @@
 This tool is for educational and research purposes only.
 The author is not responsible for any misuse or illegal activity.
 
-# 🐚 goexectoshell
+#  goexectoshell
 
 [![Go](https://img.shields.io/badge/Go-1.22-blue.svg)](https://golang.org)  
 [![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)]()  
