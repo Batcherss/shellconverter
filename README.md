@@ -20,7 +20,7 @@ A simple and fast `.exe` / `.dll` to raw `.bin` shellcode converter with optiona
 -  Required library "golang.org/x/crypto/chacha20"
 ---
 
-Usage
+## Usage
 ```
 shellconverter -i <input_file> -o <output_file> [-crypt <passphrase>] [-opt]
 ```
@@ -35,3 +35,14 @@ shellconverter -i <input_file> -o <output_file> [-crypt <passphrase>] [-opt]
 shellconverter -i input.exe -o output.bin -crypt="mysecurepassword" -opt
 ```
 The resulting output.bin contains raw shellcode, ready for use in loaders or injection tools.
+
+---
+# Can be installed like tool
+```
+go install github.com/Batcherss/shellconverter@latest
+```
+And use like this
+```
+shellconverter
+```
+Automaticly added to the path.
