@@ -10,7 +10,7 @@ The author is not responsible for any misuse or illegal activity.
 [![Shellcode](https://img.shields.io/badge/Output-Shellcode%20(.bin)-orange)]()
 
 A simple and fast `.exe` / `.dll` to raw `.bin` shellcode converter with optional AES encryption and shellcode optimization.
-
+Required library "golang.org/x/crypto/chacha20"
 ---
 
 ##  Features
