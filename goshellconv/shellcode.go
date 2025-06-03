@@ -1,25 +1,48 @@
 package goshellconv
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 )
 
-func ConvertToShellcode(inputFile string, passphrase string, optimize bool) ([]byte, error) {
+func ConvertToShellcode(inputFile string, passphrase string, optimize bool, method string) ([]byte, error) {
 	fileData, err := ReadFile(inputFile)
 	if err != nil {
 		return nil, err
 	}
 
-	shellcode := GenerateShellcode(fileData)
+	var processed []byte
 
-	if passphrase != "" {
-		encryptedShellcode, err := EncryptShellcode(shellcode, passphrase)
-		if err != nil {
-			return nil, err
+	switch method {
+	case "aes":
+		if passphrase == "" {
+			return nil, errors.New("AES encryption requires passphrase")
 		}
-		shellcode = encryptedShellcode
+		processed, err = EncryptAES(fileData, passphrase)
+	case "chacha20":
+		if passphrase == "" {
+			return nil, errors.New("ChaCha20 encryption requires passphrase")
+		}
+		processed, err = EncryptChaCha20(fileData, passphrase)
+	case "xor":
+		if passphrase == "" {
+			return nil, errors.New("XOR encryption requires passphrase")
+		}
+		processed, err = EncryptXOR(fileData, passphrase)
+	case "b64":
+		processed, err = EncryptBase64(fileData, "")
+	default:
+		return nil, fmt.Errorf("unsupported encryption method: %s", method)
 	}
+	if err != nil {
+		return nil, err
+	}
+	if method == "b64" {
+		return processed, nil
+	}
+
+	shellcode := GenerateShellcode(processed)
 
 	if optimize {
 		shellcode = OptimizeShellcode(shellcode)
