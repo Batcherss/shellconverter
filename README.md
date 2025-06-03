@@ -24,6 +24,10 @@ A simple and fast `.exe` / `.dll` to raw `.bin` shellcode converter with optiona
 ```
 shellconverter -i <input_file> -o <output_file> [-crypt <passphrase>] [-opt]
 ```
+or
+```
+go run main.go -i <input_file> -o <output_file> [-crypt <passphrase>] [-opt]
+```
 - What it does?:
   - `-i	Input file (.exe or .dll)`
   - `-o	Output file (.bin shellcode)`
@@ -33,6 +37,10 @@ shellconverter -i <input_file> -o <output_file> [-crypt <passphrase>] [-opt]
  Example
 ```
 shellconverter -i input.exe -o output.bin -crypt="mysecurepassword" -opt
+```
+or
+```
+go run main.go -i input.exe -o output.bin -crypt="mysecurepassword" -opt
 ```
 The resulting output.bin contains raw shellcode, ready for use in loaders or injection tools.
 
